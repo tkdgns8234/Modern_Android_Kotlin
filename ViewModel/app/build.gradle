@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    //데이터 바인딩을 위한 코드
+    id 'kotlin-kapt'
 }
 
 android {
@@ -30,6 +32,9 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures.viewBinding = true
+
+    //데이터 바인딩을 위한 코드
+    buildFeatures.dataBinding = true
 }
 
 dependencies {
@@ -44,7 +49,10 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.4.1"
 
     // 시스템에 의한 앱 종료시에도 viewmodel 데이터 유지, savestateInstance활용
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
+
+    //livaData를 위한 dependency
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

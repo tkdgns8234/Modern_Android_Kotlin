@@ -1,4 +1,4 @@
-package com.test.applyviewmodel
+package com.test.jetpack
 
 import org.junit.Test
 

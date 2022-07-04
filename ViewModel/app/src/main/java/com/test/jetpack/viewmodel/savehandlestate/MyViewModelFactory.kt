@@ -1,4 +1,4 @@
-package com.test.applyviewmodel
+package com.test.jetpack.viewmodel.savehandlestate
 
 import android.os.Bundle
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
@@ -6,7 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 
-class MyViewModelWithSaveStateHandleFactory(
+class MyViewModelFactory(
    private val counter : Int,
    owner: SavedStateRegistryOwner,
    defaultArgs: Bundle? = null
@@ -16,8 +16,8 @@ class MyViewModelWithSaveStateHandleFactory(
         modelClass: Class<T>,
         handle: SavedStateHandle
     ): T {
-        if (modelClass.isAssignableFrom(MyViewModelWithSaveStateHandle::class.java)) {
-            return MyViewModelWithSaveStateHandle(counter, handle) as T
+        if (modelClass.isAssignableFrom(MyViewModel::class.java)) {
+            return MyViewModel(counter, handle) as T
         }
         throw IllegalArgumentException("Viewmodel class not found")
     }
